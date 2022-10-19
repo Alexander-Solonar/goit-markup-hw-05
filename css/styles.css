@@ -38,6 +38,8 @@ h6 {
   --icon-color: #afb1b8;
   --footer-contact-color: rgba(255, 255, 255, 0.6);
   --footer-icon-color: rgba(255, 255, 255, 0.1);
+  --background-speciality-img: rgba(47, 48, 58, 0.8);
+  --background-card-portfolio: rgba(33, 150, 243, 0.9);
 }
 
 body {
@@ -94,14 +96,18 @@ body {
   gap: 50px;
 }
 
-.nav-item{
+.nav-item {
 }
 
-.active-border::after {
+.active::after {
   content: '';
   display: block;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
   width: 100%;
   height: 4px;
+
   border-radius: 2px;
   background-color: var(--accent-color);
 }
@@ -110,11 +116,14 @@ body {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
+  position: relative;
 
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--primary-titel-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover,
@@ -143,6 +152,7 @@ body {
   letter-spacing: 0.02em;
   color: var(--primary-text-color);
   fill: var(--primary-text-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:hover,
@@ -158,7 +168,7 @@ body {
 .main {
 }
 
-/* Секція баннер */
+/* Секція hero */
 
 .section-hero {
   padding-top: 200px;
@@ -168,7 +178,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   background-color: var(--primary-background-color);
-  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../images/hero/hero.jpg);
+  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url(../images/hero/hero.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -207,11 +218,13 @@ body {
   background-color: var(--accent-color);
   border: 0;
   border-radius: 4px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 950ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:hover,
 .hero-button:focus {
-  background: var(--button-active-color);
+  background-color: var(--button-active-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
@@ -291,12 +304,40 @@ body {
 }
 
 .speciality-item {
+  position: relative;
+  overflow: hidden;
 }
 
 .speciality-image {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+.speciality-overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--primary-color);
+  background: var(--background-speciality-img);
+
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.speciality-item:hover .speciality-overlay {
+  transform: translateY(0);
 }
 
 /* Наша команда */
@@ -323,7 +364,8 @@ body {
 
 .team-item {
   background-color: var(--primary-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
 }
 
@@ -377,6 +419,8 @@ body {
   height: 100%;
   border-radius: 50%;
   fill: var(--icon-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-icon-link:hover,
@@ -419,6 +463,7 @@ body {
   fill: var(--icon-color);
   border: 1px solid var(--icon-color);
   border-radius: 4px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clientage-link:hover,
@@ -467,6 +512,7 @@ body {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--primary-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-llink-map:hover,
@@ -479,6 +525,7 @@ body {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--footer-contact-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-llink-mail:hover,
@@ -491,6 +538,7 @@ body {
   line-height: 1.71;
   letter-spacing: 0.03em;
   color: var(--footer-contact-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-llink-tel:hover,
@@ -530,11 +578,12 @@ body {
   border-radius: 50%;
   fill: var(--primary-color);
   background: var(--footer-icon-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-icon-link:hover,
 .footer-icon-link:focus {
-  background: var(--accent-color);
+  background-color: var(--accent-color);
 }
 
 /* Сторінка портфоліо */
@@ -566,13 +615,16 @@ body {
   background-color: var(--secondary-background-color);
   border: transparent;
   border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-button:hover,
 .filter-button:focus {
   color: var(--primary-color);
   background-color: var(--accent-color);
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 /* Кардки портфоліо */
@@ -591,11 +643,18 @@ body {
   display: block;
   width: 100%;
   height: 100%;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-link:hover,
 .card-link:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.card-box-overlay {
+  position: relative;
+  overflow: hidden;
 }
 
 .card-image {
@@ -603,6 +662,31 @@ body {
   max-width: 100%;
   height: auto;
 }
+
+.card-text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+
+  color: var(--primary-color);
+  background-color: var(--background-card-portfolio);
+
+  transform: translateY(101%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+.card-link:hover .card-text-overlay,
+.card-link:hover .card-box-overlay {
+  transform: translateY(0);
+}
+
 
 .card-desc {
   padding: 20px 24px;
